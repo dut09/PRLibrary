@@ -1,8 +1,13 @@
 #	debug folder and files
 cpp/Debug
+cpp/Release
 cpp/x64
 cpp/sample/Debug
+cpp/sample/Release
 cpp/sample/x64
+cpp/libpr/Debug
+cpp/libpr/Release
+cpp/libpr/x64
 
 #	vs files
 *.opensdf

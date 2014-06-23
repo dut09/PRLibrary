@@ -11,19 +11,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{836C5979-AC0E-4020-B211-7ECD8E7C8808}</ProjectGuid>
+    <ProjectGuid>{2E9AD5BE-B989-4A19-8F13-F43B4BD60182}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>sample</RootNamespace>
+    <RootNamespace>libpr</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -39,26 +39,18 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
+  <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)libpr\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libpr.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -69,20 +61,60 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)libpr\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>libpr.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp" />
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pr.h" />
+    <ClInclude Include="PRBBox.h" />
+    <ClInclude Include="PRBilinearInterpolater.h" />
+    <ClInclude Include="PRBrdfSample.h" />
+    <ClInclude Include="PRBVHTreeNode.h" />
+    <ClInclude Include="PRCamera.h" />
+    <ClInclude Include="prForward.h" />
+    <ClInclude Include="PRIntersection.h" />
+    <ClInclude Include="PRLightModel.h" />
+    <ClInclude Include="PRLine.h" />
+    <ClInclude Include="PRLumitexel.h" />
+    <ClInclude Include="PRMaterial.h" />
+    <ClInclude Include="PRMatrix2D.h" />
+    <ClInclude Include="PRPixel.h" />
+    <ClInclude Include="PRSceneObject.h" />
+    <ClInclude Include="PRShape.h" />
+    <ClInclude Include="prStd.h" />
+    <ClInclude Include="PRStereoCameras.h" />
+    <ClInclude Include="PRTransform.h" />
+    <ClInclude Include="PRTriangle.h" />
+    <ClInclude Include="PRTriangleMesh.h" />
+    <ClInclude Include="PRTriangleMeshObject.h" />
+    <ClInclude Include="PRVector3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PRBBox.cpp" />
+    <ClCompile Include="PRBilinearInterpolater.cpp" />
+    <ClCompile Include="PRBrdfSample.cpp" />
+    <ClCompile Include="PRBVHTreeNode.cpp" />
+    <ClCompile Include="PRCamera.cpp" />
+    <ClCompile Include="PRLightModel.cpp" />
+    <ClCompile Include="PRLine.cpp" />
+    <ClCompile Include="PRLumitexel.cpp" />
+    <ClCompile Include="PRPixel.cpp" />
+    <ClCompile Include="PRSceneObject.cpp" />
+    <ClCompile Include="PRStereoCameras.cpp" />
+    <ClCompile Include="PRTransform.cpp" />
+    <ClCompile Include="PRTriangle.cpp" />
+    <ClCompile Include="PRTriangleMesh.cpp" />
+    <ClCompile Include="PRTriangleMeshObject.cpp" />
+    <ClCompile Include="PRVector3.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
