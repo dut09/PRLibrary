@@ -8,7 +8,7 @@ int main()
 	//	read the triangle mesh
 	PRTriangleMesh bunnyMesh("bunny.obj");
 	//	transformation
-	PRTransform transform = PRTransform::translate(0, 0, 125);
+	PRTransform transform = PRTransform::translate(0, 0, 325) * PRTransform::scale(1.0, -1.0, 1.0);
 	//	material
 	PhongMaterial material(PRVector3(0.1, 0.1, 0.1), 
 		PRVector3(0.3, 0.1, 0.5), 
@@ -41,5 +41,6 @@ int main()
 			}
 		}
 	}
+	image.writeIntoFile("image.prb");
 	return 0;
 }
