@@ -18,8 +18,6 @@ class PRTriangle : public PRShape
 public:
 	PRTriangle();
 	PRTriangle(const PRVector3& v1, const PRVector3& v2, const PRVector3& v3);
-	PRTriangle(const PRVector3& v1, const PRVector3& v2, const PRVector3& v3,
-		const PRVector3& c1, const PRVector3& c2, const PRVector3& c3);
 	~PRTriangle();
 	//	overload operator
 	//	it is not allowed to modify the data
@@ -55,15 +53,10 @@ public:
 	//	get bounding box
 	PRBBox getBBox() {return m_bbox;}
 
-	PRVector3 getColor(const PRVector3& p);
 
 private:
 	//	data member
 	PRVector3 m_vertices[3];
-	//	m_color stores the color 
-	//	from the obj file
-	//	this field is not mandatory
-	PRVector3 m_color[3];
 	//	m_normal stores the normal of the triangle
 	PRVector3 m_normal;
 	double m_area;

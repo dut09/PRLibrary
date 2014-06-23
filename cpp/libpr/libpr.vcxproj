@@ -76,15 +76,12 @@
   <ItemGroup>
     <ClInclude Include="pr.h" />
     <ClInclude Include="PRBBox.h" />
-    <ClInclude Include="PRBilinearInterpolater.h" />
-    <ClInclude Include="PRBrdfSample.h" />
     <ClInclude Include="PRBVHTreeNode.h" />
     <ClInclude Include="PRCamera.h" />
     <ClInclude Include="prForward.h" />
     <ClInclude Include="PRIntersection.h" />
     <ClInclude Include="PRLightModel.h" />
     <ClInclude Include="PRLine.h" />
-    <ClInclude Include="PRLumitexel.h" />
     <ClInclude Include="PRMaterial.h" />
     <ClInclude Include="PRMatrix2D.h" />
     <ClInclude Include="PRPixel.h" />
@@ -95,25 +92,20 @@
     <ClInclude Include="PRTransform.h" />
     <ClInclude Include="PRTriangle.h" />
     <ClInclude Include="PRTriangleMesh.h" />
-    <ClInclude Include="PRTriangleMeshObject.h" />
     <ClInclude Include="PRVector3.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PRBBox.cpp" />
-    <ClCompile Include="PRBilinearInterpolater.cpp" />
-    <ClCompile Include="PRBrdfSample.cpp" />
     <ClCompile Include="PRBVHTreeNode.cpp" />
     <ClCompile Include="PRCamera.cpp" />
     <ClCompile Include="PRLightModel.cpp" />
     <ClCompile Include="PRLine.cpp" />
-    <ClCompile Include="PRLumitexel.cpp" />
     <ClCompile Include="PRPixel.cpp" />
     <ClCompile Include="PRSceneObject.cpp" />
     <ClCompile Include="PRStereoCameras.cpp" />
     <ClCompile Include="PRTransform.cpp" />
     <ClCompile Include="PRTriangle.cpp" />
     <ClCompile Include="PRTriangleMesh.cpp" />
-    <ClCompile Include="PRTriangleMeshObject.cpp" />
     <ClCompile Include="PRVector3.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

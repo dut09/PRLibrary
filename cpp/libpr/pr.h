@@ -27,13 +27,9 @@ April 8, 2014
 #include "PRTriangle.h"			//	triangle
 #include "PRTransform.h"		//	transformation
 #include "PRSceneObject.h"
-#include "PRTriangleMeshObject.h"
 #include "PRMaterial.h"
-#include "PRBrdfSample.h"
-#include "PRLumitexel.h"
 
 //	rasterization class
-#include "PRBilinearInterpolater.h"	//	bilinear interpolation
 #include "PRCamera.h"				//	camera with intrinsic/extrinsic parameters
 #include "PRLightModel.h"			//	light model
 #include "PRStereoCameras.h"		//	stereo camera systems

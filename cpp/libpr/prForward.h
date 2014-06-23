@@ -25,13 +25,9 @@ class PRShape;
 class PRTriangle;
 class PRTransform;
 class PRSceneObject;
-class PRTriangleMeshObject;
 class PRMaterial;
-class PRBrdfSample;
-class PRLumitexel;
 
 //	rasterization class
-class PRBilinearInterpolater;
 class PRCamera;
 class PRLightModel;
 class PRStereoCameras;

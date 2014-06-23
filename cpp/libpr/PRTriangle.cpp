@@ -9,7 +9,6 @@ April 16, 2014
 PRTriangle::PRTriangle()
 {
 	m_vertices[0] = m_vertices[1] = m_vertices[2] = PRVector3();
-	m_color[0] = m_color[1] = m_color[2] = PRVector3();
 	m_normal = PRVector3();
 	m_area = 0.0;
 	m_bbox = PRBBox(PRVector3(), PRVector3());
@@ -20,33 +19,6 @@ PRTriangle::PRTriangle(const PRVector3& v1, const PRVector3& v2, const PRVector3
 	m_vertices[0] = v1;
 	m_vertices[1] = v2;
 	m_vertices[2] = v3;
-	m_color[0] = m_color[1] = m_color[2] = PRVector3();
-	m_normal = PRVector3::cross(v2 - v1, v3 - v2);
-
-	//	compute the area of the triangle
-	m_area = 0.5 * m_normal.length();
-	//	normalize the normal!
-	if (m_area < DBL_EPSILON)
-		m_normal = PRVector3(0.0, 0.0, 0.0);
-	else
-		m_normal = m_normal / (2 * m_area);
-
-	//	compute the bounding box
-	PRVector3 pMin = PRVector3::min(v1, PRVector3::min(v2, v3));
-	PRVector3 pMax = PRVector3::max(v1, PRVector3::max(v2, v3));
-	m_bbox = PRBBox(pMin, pMax);
-}
-
-PRTriangle::PRTriangle(const PRVector3& v1, const PRVector3& v2, const PRVector3& v3,
-		const PRVector3& c1, const PRVector3& c2, const PRVector3& c3)
-{
-	m_vertices[0] = v1;
-	m_vertices[1] = v2;
-	m_vertices[2] = v3;
-	m_color[0] = c1;
-	m_color[1] = c2;
-	m_color[2] = c3;
-	
 	m_normal = PRVector3::cross(v2 - v1, v3 - v2);
 
 	//	compute the area of the triangle
@@ -130,8 +102,7 @@ PRTriangle PRTriangle::transform(const PRTransform &t)
 	m_vertices[0] = t * m_vertices[0];
 	m_vertices[1] = t * m_vertices[1];
 	m_vertices[2] = t * m_vertices[2];
-	return PRTriangle(m_vertices[0], m_vertices[1], m_vertices[2],
-		m_color[0], m_color[1], m_color[2]);
+	return PRTriangle(m_vertices[0], m_vertices[1], m_vertices[2]);
 }
 
 //	get the intersection point
@@ -190,17 +161,4 @@ double PRTriangle::getIntersectionT(const PRLine &l)
 		|| w.x < 0.0 || w.y < 0.0 || w.z < 0.0)
 		return DBL_MAX;
 	return t;
-}
-
-PRVector3 PRTriangle::getColor(const PRVector3& p)
-{
-	//	find the barycentric weight
-	PRVector3 w = getBarycentricWeight(p);
-	if ((w.x == DBL_MAX && w.y == DBL_MAX && w.z == DBL_MAX)
-		|| w.x < 0.0 || w.y < 0.0 || w.z < 0.0)
-		return PRVector3(DBL_MAX, DBL_MAX, DBL_MAX);
-	PRVector3 color(0.0, 0.0, 0.0);
-	for (int i = 0; i < 3; i++)
-		color += (m_color[i] * w[i]);
-	return color;
 }

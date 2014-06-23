@@ -5,21 +5,21 @@ May 7, 2014
 */
 #include "PRBVHTreeNode.h"
 
-bool compareX(PRTriangle* t1, PRTriangle* t2)
+bool compareX(PRShape* t1, PRShape* t2)
 {
 	PRVector3 c1 = t1->getBBox().getCenter();
 	PRVector3 c2 = t2->getBBox().getCenter();
 	return c1.x < c2.x;
 }
 
-bool compareY(PRTriangle* t1, PRTriangle* t2)
+bool compareY(PRShape* t1, PRShape* t2)
 {
 	PRVector3 c1 = t1->getBBox().getCenter();
 	PRVector3 c2 = t2->getBBox().getCenter();
 	return c1.y < c2.y;
 }
 
-bool compareZ(PRTriangle* t1, PRTriangle* t2)
+bool compareZ(PRShape* t1, PRShape* t2)
 {
 	PRVector3 c1 = t1->getBBox().getCenter();
 	PRVector3 c2 = t2->getBBox().getCenter();
@@ -27,32 +27,32 @@ bool compareZ(PRTriangle* t1, PRTriangle* t2)
 }
 
 //	init a bvh tree leaf node
-PRBVHTreeNode::PRBVHTreeNode(PRTriangle *triangle)
+PRBVHTreeNode::PRBVHTreeNode(PRShape *shape)
 {
 	//	build a leaf node
-	this->bbox = triangle->getBBox();
-	this->triangle = triangle;
+	this->bbox = shape->getBBox();
+	this->shape = shape;
 	this->left = this->right = NULL;
 }
 
 //	init a bvh tree
-PRBVHTreeNode::PRBVHTreeNode(std::vector<PRTriangle *> &objs)
+PRBVHTreeNode::PRBVHTreeNode(std::vector<PRShape *> &objs)
 {
 	int num = (int)objs.size();
 	if (num == 0)
 	{
-		this->triangle = NULL;
+		this->shape = NULL;
 		this->left = this->right = NULL;
 	}
 	else if (num == 1)
 	{
-		this->triangle = objs.at(0);
+		this->shape = objs.at(0);
 		this->left = this->right = NULL;
-		this->bbox = this->triangle->getBBox();
+		this->bbox = this->shape->getBBox();
 	}
 	else if (num == 2)
 	{
-		this->triangle = NULL;
+		this->shape = NULL;
 		this->left = new PRBVHTreeNode(objs[0]);
 		this->right = new PRBVHTreeNode(objs[1]);
 		this->bbox = PRBBox::combine(this->left->bbox, this->right->bbox);
@@ -79,14 +79,14 @@ PRBVHTreeNode::PRBVHTreeNode(std::vector<PRTriangle *> &objs)
 			std::sort(objs.begin(), objs.end(), compareZ);
 			break;
 		}
-		std::vector<PRTriangle *> lobjs;
-		std::vector<PRTriangle *> robjs;
+		std::vector<PRShape *> lobjs;
+		std::vector<PRShape *> robjs;
 		for (int i = 0; i < num / 2; i++)
 			lobjs.push_back(objs[i]);
 		for (int i = num / 2; i < num; i++)
 			robjs.push_back(objs[i]);
 
-		this->triangle = NULL;
+		this->shape = NULL;
 		this->left = new PRBVHTreeNode(lobjs);
 		this->right = new PRBVHTreeNode(robjs);
 		this->bbox = PRBBox::combine(this->left->bbox, this->right->bbox);
@@ -104,10 +104,10 @@ PRBVHTreeNode::~PRBVHTreeNode()
 
 PRIntersection PRBVHTreeNode::getIntersection(const PRLine &l)
 {
-	if (triangle)
+	if (shape)
 	{
 		//	leaf node
-		return triangle->getIntersection(l);
+		return shape->getIntersection(l);
 	}
 	else
 	{
@@ -144,10 +144,10 @@ bool PRBVHTreeNode::doesIntersect(const PRLine &l)
 
 double PRBVHTreeNode::getIntersectionT(const PRLine &l)
 {
-	if (triangle)
+	if (shape)
 	{
 		//	leaf node
-		return triangle->getIntersectionT(l);
+		return shape->getIntersectionT(l);
 	}
 	else
 	{
@@ -166,53 +166,6 @@ double PRBVHTreeNode::getIntersectionT(const PRLine &l)
 		else
 		{
 			return DBL_MAX;
-		}
-	}
-}
-
-//	add for bvhtree specifically
-PRIntersection PRBVHTreeNode::getIntersectionWithTriangle(const PRLine &l, PRTriangle &t)
-{
-	if (triangle)
-	{
-		//	leaf node
-		PRIntersection inter = triangle->getIntersection(l);
-		//	if it is a valid intersection
-		if (inter.t != DBL_MAX)
-			t = *triangle;
-		return inter;
-	}
-	else
-	{
-		//	interior node
-		if (this->bbox.doesIntersect(l))
-		{
-			//	test left and right
-			PRTriangle t1, t2;
-			PRIntersection iLeft = left->getIntersectionWithTriangle(l, t1);
-			PRIntersection iRight = right->getIntersectionWithTriangle(l, t2);
-			//	decide which one is closer
-			if (iLeft.t == DBL_MAX && iRight.t == DBL_MAX)
-				return iLeft;
-			else if (iRight.t == DBL_MAX)
-			{	
-				t = t1;
-				return iLeft;
-			}
-			else
-			{
-				t = iLeft.t < iRight.t ? t1 : t2;
-				return iLeft.t < iRight.t ? iLeft : iRight;
-			}
-		}
-		else
-		{
-			//	no intersection
-			return PRIntersection(
-					PRVector3(DBL_MAX, DBL_MAX, DBL_MAX),
-					PRVector3(DBL_MAX, DBL_MAX, DBL_MAX),
-					DBL_MAX
-				);
 		}
 	}
 }

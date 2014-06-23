@@ -15,7 +15,6 @@ May 5, 2014
 #include "prStd.h"
 #include "PRShape.h"
 #include "PRBVHTreeNode.h"
-#include "PRLumitexel.h"
 #include "PRMaterial.h"
 
 //	face: used in triangle mesh
@@ -24,71 +23,26 @@ struct PRFace;
 //	vertex: used in triangle mesh only!
 
 //	PRVertex contains a point, a normal
-//	a pointer to a PRFace and a pointer
-//	to lumitexel
-//	it is a really loose struct data structure
-//	used to store information only
+//	a pointer to a PRFace
 struct PRVertex
 {
 	PRVertex(double x, double y, double z)
 	{
 		point = PRVector3(x, y, z);
 		normal = PRVector3(0.0, 0.0, 0.0);
-		color = PRVector3(0.0, 0.0, 0.0);
 		face = NULL;
-		//	lumitexel information
-		lumitexel = new PRLumitexel();
-		material = NULL;
 	}
 
 	PRVertex(const PRVector3& p)
 	{
 		point = p;
 		normal = PRVector3(0.0, 0.0, 0.0);
-		color = PRVector3(0.0, 0.0, 0.0);
 		face = NULL;
-		lumitexel = new PRLumitexel();
-		material = NULL;
-	}
-
-	PRVertex(const PRVector3& p, const PRVector3& c)
-	{
-		point = p;
-		normal = PRVector3(0.0, 0.0, 0.0);
-		color = c;
-		face = NULL;
-		lumitexel = new PRLumitexel();
-		material = NULL;
-	}
-
-	PRVertex(double x, double y, double z, double r, double g, double b)
-	{
-		point = PRVector3(x, y, z);
-		normal = PRVector3(0.0, 0.0, 0.0);
-		color = PRVector3(r, g, b);
-		face = NULL;
-		lumitexel = new PRLumitexel();
-		material = NULL;
-	}
-
-	~PRVertex()
-	{
-		//	delete lumitexel information
-		delete lumitexel;
-		if (material)
-		{
-			delete material;
-			material = NULL;
-		}
 	}
 
 	PRVector3 point;
 	PRVector3 normal;
-	PRVector3 color;
 	PRFace *face;
-	//	lumitexel information
-	PRLumitexel *lumitexel;
-	PRMaterial *material;
 };
 
 //	PRFace contains three vertex
@@ -126,21 +80,11 @@ public:
 	bool doesIntersect(const PRLine &l);
 	double getIntersectionT(const PRLine &l);
 	
-	//	add for triangle specifically
-	PRIntersection getIntersectionWithTriangle(const PRLine &l, PRTriangle &triangle);
-	
 	//	get bounding box
 	PRBBox getBBox() {return m_bbox;}
 
 	//	get vertex number
 	int getVertexNumber() {return (int)m_vertices.size();}
-	//	get vertex
-	//	get the point the vertex
-	//	this function is dangerous because
-	//	it fully exposes the vertex to the caller
-	//	but it could allow the caller to add brdf samples
-	//	into the lumitexel into the vertex
-	PRVertex* getWholeVertex(int id);
 	PRVector3 getVertex(int id);
 	PRVector3 getVertexNormal(int id);
 
@@ -159,12 +103,11 @@ private:
 	PRFace* nextAdjFace(PRVertex *v, PRFace *f);
 	PRFace* nextAdjFaceReverse(PRVertex *v, PRFace *f);
 
-	//	manually delete the triangles in m_bvhTree
-	void deleteTriangleInTreeNode(PRBVHTreeNode *root);
-
 	//	data member
 	std::vector<PRVertex*> m_vertices;
 	std::vector<PRFace*> m_faces;
+	//	build trinagles from the faces
+	std::vector<PRShape *> m_triangles;
 
 	//	BVH tree
 	PRBVHTreeNode *m_bvhTree;

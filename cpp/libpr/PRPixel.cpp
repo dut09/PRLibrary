@@ -14,10 +14,10 @@ PRPixel::PRPixel()
 	height = width = 0;
 }
 
-PRPixel::PRPixel(int height, int width)
+PRPixel::PRPixel(double h, double w)
 {
-	this->height = height;
-	this->width = width;
+	this->height = h;
+	this->width = w;
 }
 
 //	copy constructor
@@ -49,7 +49,7 @@ bool PRPixel::operator!=(const PRPixel& p) const
 }
 
 //	[] subscription
-int& PRPixel::operator[](int i)
+double& PRPixel::operator[](int i)
 {
 	//	the index should be in [0, 2)
 	assert(i >= 0 && i < 2);

@@ -61,12 +61,12 @@ public:
 
 	//	get a single element
 	DataType getData(int height, int width) const;
-	//	get a single element from a pixel
-	DataType getData(const PRPixel& p) const;
+	//	interpolate between the matrix
+	DataType interpData(double height, double width) const;
+	DataType interpData(const PRPixel& p) const;
+
 	//	set a single element
 	void setData(int height, int width, const DataType& d);
-	//	set a single element from a pixel
-	void setData(const PRPixel& p, const DataType& d);
 
 	//	get the height of the matrix
 	int getHeight()	const {return m_height;}
@@ -290,15 +290,29 @@ DataType PRMatrix2D<DataType>::getData(int height, int width) const
 	return m_data[height][width];
 }
 
-//	get a single element from a pixel
-//	do not call this function when the matrix is empty (0x0 matrix)
+//	interpolate between the matrix
 template <class DataType>
-DataType PRMatrix2D<DataType>::getData(const PRPixel& p) const
+DataType PRMatrix2D<DataType>::interpData(double height, double width) const
 {
-	int height = p.height, width = p.width;
-	assert(height >= 0 && height < m_height);
-	assert(width >= 0 && width < m_width);
-	return m_data[height][width];
+	assert(height >= 0 && height <= m_height - 1);
+	assert(width >= 0 && width <= m_width - 1);
+	int h0 = (int)height, w0 = (int)width;
+	int h1 = std::min(h0 + 1, m_height - 1), w1 = std::min(w0 + 1, m_width - 1);
+	double dh = height - h0, dw = width - w0;
+	double d00 = m_data[h0][w0];
+	double d01 = m_data[h0][w1];
+	double d10 = m_data[h1][w0];
+	double d11 = m_data[h1][w1];
+	return d00 * (1 - dh) * (1 - dw)
+		+ d01 * (1 - dh) * dw
+		+ d10 * dh * (1 - dw)
+		+ d11 * dh * dw;
+}
+
+template <class DataType>
+DataType PRMatrix2D<DataType>::interpData(const PRPixel& p) const
+{
+	return interpData(p.height, p.width);
 }
 
 //	set the element
@@ -306,18 +320,6 @@ DataType PRMatrix2D<DataType>::getData(const PRPixel& p) const
 template <class DataType>
 void PRMatrix2D<DataType>::setData(int height, int width, const DataType& d)
 {
-	assert(height >= 0 && height < m_height);
-	assert(width >= 0 && width < m_width);
-	m_data[height][width] = d;
-}
-
-
-//	set a single element from a pixel
-//	do not call this function when the matrix is empty (0x0 matrix)
-template <class DataType>
-void PRMatrix2D<DataType>::setData(const PRPixel& p, const DataType& d)
-{
-	int height = p.height, width = p.width;
 	assert(height >= 0 && height < m_height);
 	assert(width >= 0 && width < m_width);
 	m_data[height][width] = d;

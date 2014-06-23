@@ -12,23 +12,17 @@ PRTriangleMesh::PRTriangleMesh(const std::string objFileName)
 	readObjFile(objFileName);
 	build();
 	//	build BVHTree and the bounding box
-	//	we have memory leak problems here!
-	//	fixed by deleteTriangleInTreeNode()
-	std::vector<PRTriangle*> triangles;
-	triangles.reserve(m_faces.size());
+	m_triangles.reserve(m_faces.size());
 	for (unsigned int i = 0; i < m_faces.size(); i++)
 	{
 		PRFace *f = m_faces.at(i);
 		PRTriangle *p = new PRTriangle(f->vertex[0]->point,
 			f->vertex[1]->point,
-			f->vertex[2]->point,
-			f->vertex[0]->color,
-			f->vertex[1]->color,
-			f->vertex[2]->color);
-		triangles.push_back(p);
+			f->vertex[2]->point);
+		m_triangles.push_back(p);
 		m_bbox = PRBBox::combine(m_bbox, p->getBBox());
 	}
-	m_bvhTree = new PRBVHTreeNode(triangles);
+	m_bvhTree = new PRBVHTreeNode(m_triangles);
 }
 
 PRTriangleMesh::~PRTriangleMesh()
@@ -40,12 +34,13 @@ PRTriangleMesh::~PRTriangleMesh()
 	m_vertices.clear();
 	for (unsigned int i = 0; i < m_faces.size(); i++)
 		delete m_faces[i];
+	for (unsigned int i = 0; i < m_triangles.size(); i++)
+		delete m_triangles[i];
 	m_faces.clear();
 	//	delete all the triangles in bvhTree
 	//	manually delete the triangles in the bvhTree
 	if (m_bvhTree)
 	{
-		deleteTriangleInTreeNode(m_bvhTree);
 		//	delete the bvhTree
 		delete m_bvhTree;
 	}
@@ -74,26 +69,6 @@ double PRTriangleMesh::getIntersectionT(const PRLine &l)
 		return m_bvhTree->getIntersectionT(l);
 	else
 		return DBL_MAX;
-}
-
-PRIntersection PRTriangleMesh::getIntersectionWithTriangle(const PRLine &l, PRTriangle &triangle)
-{
-	if (m_bvhTree)
-		return m_bvhTree->getIntersectionWithTriangle(l, triangle);
-	else
-		return PRIntersection(
-			PRVector3(DBL_MAX, DBL_MAX, DBL_MAX), 
-			PRVector3(DBL_MAX, DBL_MAX, DBL_MAX), 
-			DBL_MAX
-		);
-}
-
-//	get vertex
-PRVertex* PRTriangleMesh::getWholeVertex(int id)
-{
-	int num = getVertexNumber();
-	assert(id >= 0 && id < num);
-	return m_vertices.at(id);
 }
 
 PRVector3 PRTriangleMesh::getVertex(int id)
@@ -133,7 +108,6 @@ void PRTriangleMesh::readObjFile(const std::string objFileName)
 	char comments[256];
 	char token[128];
 	double x, y, z;
-	double r, g, b;
 	double nx, ny, nz;
 	int v1, v2, v3;
 	int n1, n2, n3;
@@ -151,8 +125,8 @@ void PRTriangleMesh::readObjFile(const std::string objFileName)
 		else if (strcmp(token, "v") == 0)
 		{
 			//	vertex and its color
-			fin >> x >> y >> z >> r >> g >> b;
-			m_vertices.push_back(new PRVertex(x, y, z, r, g, b));
+			fin >> x >> y >> z;
+			m_vertices.push_back(new PRVertex(x, y, z));
 		}
 		else if (strcmp(token, "vn") == 0)
 		{
@@ -264,25 +238,4 @@ PRFace* PRTriangleMesh::nextAdjFaceReverse(PRVertex *v, PRFace *f)
 		return f->adjFace[1];
 	else
 		return NULL;
-}
-
-void PRTriangleMesh::deleteTriangleInTreeNode(PRBVHTreeNode *root)
-{
-	if (!root)
-		return;
-	if (root->triangle)
-	{
-		//	leaf nodes
-		delete root->triangle;
-		return;
-	}
-	else
-	{
-		//	interior node
-		//	delete left child
-		deleteTriangleInTreeNode(root->left);
-		//	delete right child
-		deleteTriangleInTreeNode(root->right);
-		return;
-	}
 }

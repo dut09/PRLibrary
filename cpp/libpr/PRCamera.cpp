@@ -117,9 +117,7 @@ PRPixel PRCamera::camera2pixel(const PRVector3 &v) const
 	xp = m_fc[0] * (xd[0] + m_alpha_c * xd[1]) + m_cc[0];
 	yp = m_fc[1] * xd[1] + m_cc[1];
 
-	//	round the results to the closest int
-	//	note that x is along the width (horizontal) axis and y is along the height (vertical) axis
-	PRPixel p(int(yp + 0.5), int(xp + 0.5));
+	PRPixel p(yp, xp);
 	return p;
 }
 
@@ -132,8 +130,8 @@ PRVector3 PRCamera::pixel2camera(const PRPixel &p) const
 	//	we follow the name convention in the normalize.m in the toolbox
 	//	it is a C++ implementation of the matlab function normalize.m
 	double x_kk[2];
-	x_kk[0] = double(p.width);
-	x_kk[1] = double(p.height);
+	x_kk[0] = p.width;
+	x_kk[1] = p.height;
 
 	double x_distort[2];
 	x_distort[0] = (x_kk[0] - m_cc[0]) / m_fc[0];
@@ -281,8 +279,8 @@ void PRCamera::rasterizeTriangle(PRTriangle& triangle, PRMatrix2D<double> &depth
 		p[i] = camera2pixel(triangle[i]);
 	}
 	//	find the bounding box in the image plane
-	int hMin = p[0].height, hMax = hMin;
-	int wMin = p[0].width, wMax = wMin;
+	double hMin = p[0].height, hMax = hMin;
+	double wMin = p[0].width, wMax = wMin;
 	for (int i = 0; i < 3; i++)
 	{
 		hMin = std::min(hMin, p[i].height);
@@ -291,14 +289,14 @@ void PRCamera::rasterizeTriangle(PRTriangle& triangle, PRMatrix2D<double> &depth
 		wMax = std::max(wMax, p[i].width);
 	}
 	//	crop it into the imgae plane
-	hMin = std::max(0, hMin);
-	wMin = std::max(0, wMin);
-	hMax = std::min(m_height - 1, hMax);
-	wMax = std::min(m_width - 1, wMax);
+	int ihMin = (int)std::max(0.0, hMin);
+	int iwMin = (int)std::max(0.0, wMin);
+	int ihMax = (int)std::min(m_height - 1.0, hMax);
+	int iwMax = (int)std::min(m_width - 1.0, wMax);
 
 	//	scan all the pixels in the bounding box
-	for (int i = hMin; i <= hMax; i++)
-		for (int j = wMin; j <= wMax; j++)
+	for (int i = ihMin; i <= ihMax; i++)
+		for (int j = iwMin; j <= iwMax; j++)
 		{
 			//	ray tracing from this pixel
 			PRVector3 d = pixel2camera(PRPixel(i, j));
@@ -311,24 +309,6 @@ void PRCamera::rasterizeTriangle(PRTriangle& triangle, PRMatrix2D<double> &depth
 			double depth = inter.point.z;
 			if (depth < depthImage(i, j))
 				depthImage(i, j) = depth;
-
-			/*
-			//	get the parameter t
-			double t = triangle.getIntersectionT(l);
-			//	check whether t is valid
-			if (t == DBL_MAX)
-				continue;
-			PRVector3 inter = l(t);
-			//	compute the barycentric weight
-			PRVector3 w = triangle.getBarycentricWeight(inter);
-			//	compute the depth
-			double depth = w.x * triangle[0].z 
-				+ w.y * triangle[1].z 
-				+ w.z * triangle[2].z;
-			//	update depth
-			if (depth < depthImage(i, j))
-				depthImage(i, j) = depth;
-			*/
 		}
 }
 

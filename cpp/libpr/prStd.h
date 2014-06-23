@@ -51,8 +51,8 @@ April 8, 2014
 //	define the closest distance to the origin
 //	in camera frame
 //	used to cull invalid triangle in rasterization
-#define PRCAMERA_MIN_DEPTH	450.0
-#define PRCAMERA_MAX_DEPTH	1500.0
+#define PRCAMERA_MIN_DEPTH	400.0
+#define PRCAMERA_MAX_DEPTH	1600.0
 
 
 #endif

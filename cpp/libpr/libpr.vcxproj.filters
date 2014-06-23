@@ -24,12 +24,6 @@
     <ClInclude Include="PRBBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PRBilinearInterpolater.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRBrdfSample.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PRBVHTreeNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -46,9 +40,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PRLine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRLumitexel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PRMaterial.h">
@@ -81,21 +72,12 @@
     <ClInclude Include="PRTriangleMesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PRTriangleMeshObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PRVector3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PRBBox.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PRBilinearInterpolater.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PRBrdfSample.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PRBVHTreeNode.cpp">
@@ -108,9 +90,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PRLine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PRLumitexel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PRPixel.cpp">
@@ -129,9 +108,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PRTriangleMesh.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PRTriangleMeshObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PRVector3.cpp">

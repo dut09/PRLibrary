@@ -23,7 +23,7 @@ class PRPixel
 public:
 	//	constructor
 	PRPixel();
-	PRPixel(int height, int width);
+	PRPixel(double h, double w);
 	//	copy constructor
 	PRPixel(const PRPixel& p);
 
@@ -35,7 +35,7 @@ public:
 	bool operator==(const PRPixel& p) const;
 	bool operator!=(const PRPixel& p) const;
 	//	[] subscription
-	int& operator[](int i);
+	double& operator[](int i);
 
 	//	neighborhood
 	//	step controls the distance between the neighbor and the pixel
@@ -43,7 +43,7 @@ public:
 	PRPixel getNeighbor(PR_PIXEL_DIR dir, int step) const;
 
 	//	data member
-	int height, width;
+	double height, width;
 };
 
 
