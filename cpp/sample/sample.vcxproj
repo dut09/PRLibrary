@@ -83,6 +83,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PhongMaterial.cpp" />
+    <ClCompile Include="ConstantLight.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PhongMaterial.h" />
+    <ClInclude Include="ConstantLight.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

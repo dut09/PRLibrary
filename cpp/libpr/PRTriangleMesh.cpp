@@ -124,7 +124,7 @@ void PRTriangleMesh::readObjFile(const std::string objFileName)
 		}
 		else if (strcmp(token, "v") == 0)
 		{
-			//	vertex and its color
+			//	vertex
 			fin >> x >> y >> z;
 			m_vertices.push_back(new PRVertex(x, y, z));
 		}
