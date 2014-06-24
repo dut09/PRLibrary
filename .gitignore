@@ -14,9 +14,6 @@ cpp/libpr/x64
 *.sdf
 *.suo
 
-#	lib file
-*.lib
-
 #	binary file
 *.prb
 
