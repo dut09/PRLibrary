@@ -1,6 +1,8 @@
 #include "PhongMaterial.h"
 #include "ConstantLight.h"
 
+#include "display\PRDisplay.h"
+
 int main()
 {
 	//	read camera configuration file
@@ -41,6 +43,6 @@ int main()
 			}
 		}
 	}
-	image.writeIntoFile("output/image.prb");
+	displayImage(image);
 	return 0;
 }

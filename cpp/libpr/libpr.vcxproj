@@ -39,7 +39,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)sample\lib\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)sample\lib\</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>
@@ -47,6 +52,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\3rdparty\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -62,6 +68,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)include\3rdparty\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -74,39 +81,41 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="accel\PRBVHTreeNode.h" />
-    <ClInclude Include="base\PRIntersection.h" />
-    <ClInclude Include="base\PRLine.h" />
-    <ClInclude Include="base\PRMatrix2D.h" />
-    <ClInclude Include="base\PRPixel.h" />
-    <ClInclude Include="base\PRTransform.h" />
-    <ClInclude Include="base\PRVector3.h" />
-    <ClInclude Include="camera\PRCamera.h" />
-    <ClInclude Include="camera\PRStereoCameras.h" />
-    <ClInclude Include="light\PRLightModel.h" />
-    <ClInclude Include="material\PRMaterial.h" />
-    <ClInclude Include="pr.h" />
-    <ClInclude Include="prForward.h" />
-    <ClInclude Include="prStd.h" />
-    <ClInclude Include="shape\PRBBox.h" />
-    <ClInclude Include="shape\PRSceneObject.h" />
-    <ClInclude Include="shape\PRShape.h" />
-    <ClInclude Include="shape\PRTriangle.h" />
-    <ClInclude Include="shape\PRTriangleMesh.h" />
+    <ClInclude Include="include\accel\PRBVHTreeNode.h" />
+    <ClInclude Include="include\base\PRIntersection.h" />
+    <ClInclude Include="include\base\PRLine.h" />
+    <ClInclude Include="include\base\PRMatrix2D.h" />
+    <ClInclude Include="include\base\PRPixel.h" />
+    <ClInclude Include="include\base\PRTransform.h" />
+    <ClInclude Include="include\base\PRVector3.h" />
+    <ClInclude Include="include\camera\PRCamera.h" />
+    <ClInclude Include="include\camera\PRStereoCameras.h" />
+    <ClInclude Include="include\display\PRDisplay.h" />
+    <ClInclude Include="include\light\PRLightModel.h" />
+    <ClInclude Include="include\material\PRMaterial.h" />
+    <ClInclude Include="include\pr.h" />
+    <ClInclude Include="include\prForward.h" />
+    <ClInclude Include="include\prStd.h" />
+    <ClInclude Include="include\shape\PRBBox.h" />
+    <ClInclude Include="include\shape\PRSceneObject.h" />
+    <ClInclude Include="include\shape\PRShape.h" />
+    <ClInclude Include="include\shape\PRTriangle.h" />
+    <ClInclude Include="include\shape\PRTriangleMesh.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="accel\PRBVHTreeNode.cpp" />
-    <ClCompile Include="base\PRLine.cpp" />
-    <ClCompile Include="base\PRPixel.cpp" />
-    <ClCompile Include="base\PRTransform.cpp" />
-    <ClCompile Include="base\PRVector3.cpp" />
-    <ClCompile Include="camera\PRCamera.cpp" />
-    <ClCompile Include="camera\PRStereoCameras.cpp" />
-    <ClCompile Include="light\PRLightModel.cpp" />
-    <ClCompile Include="shape\PRBBox.cpp" />
-    <ClCompile Include="shape\PRSceneObject.cpp" />
-    <ClCompile Include="shape\PRTriangle.cpp" />
-    <ClCompile Include="shape\PRTriangleMesh.cpp" />
+    <ClCompile Include="src\accel\PRBVHTreeNode.cpp" />
+    <ClCompile Include="src\base\PRLine.cpp" />
+    <ClCompile Include="src\base\PRPixel.cpp" />
+    <ClCompile Include="src\base\PRTransform.cpp" />
+    <ClCompile Include="src\base\PRVector3.cpp" />
+    <ClCompile Include="src\camera\PRCamera.cpp" />
+    <ClCompile Include="src\camera\PRStereoCameras.cpp" />
+    <ClCompile Include="src\display\PRDisplay.cpp" />
+    <ClCompile Include="src\light\PRLightModel.cpp" />
+    <ClCompile Include="src\shape\PRBBox.cpp" />
+    <ClCompile Include="src\shape\PRSceneObject.cpp" />
+    <ClCompile Include="src\shape\PRTriangle.cpp" />
+    <ClCompile Include="src\shape\PRTriangleMesh.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

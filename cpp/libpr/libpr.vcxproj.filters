@@ -49,105 +49,117 @@
     <Filter Include="Source Files\shape">
       <UniqueIdentifier>{19dec4dc-8301-43f1-98d7-22ff9dc0d9b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\display">
+      <UniqueIdentifier>{614b9aa6-53e4-49b6-85a0-01b6bd061128}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\display">
+      <UniqueIdentifier>{3d4a014d-461f-4b29-8f96-3b4db9127f85}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="prForward.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="prStd.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="accel\PRBVHTreeNode.h">
+    <ClInclude Include="include\accel\PRBVHTreeNode.h">
       <Filter>Header Files\accel</Filter>
     </ClInclude>
-    <ClInclude Include="base\PRIntersection.h">
+    <ClInclude Include="include\base\PRIntersection.h">
       <Filter>Header Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="base\PRLine.h">
+    <ClInclude Include="include\base\PRLine.h">
       <Filter>Header Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="base\PRMatrix2D.h">
+    <ClInclude Include="include\base\PRMatrix2D.h">
       <Filter>Header Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="base\PRPixel.h">
+    <ClInclude Include="include\base\PRPixel.h">
       <Filter>Header Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="base\PRTransform.h">
+    <ClInclude Include="include\base\PRTransform.h">
       <Filter>Header Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="base\PRVector3.h">
+    <ClInclude Include="include\base\PRVector3.h">
       <Filter>Header Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="camera\PRCamera.h">
+    <ClInclude Include="include\camera\PRCamera.h">
       <Filter>Header Files\camera</Filter>
     </ClInclude>
-    <ClInclude Include="camera\PRStereoCameras.h">
+    <ClInclude Include="include\camera\PRStereoCameras.h">
       <Filter>Header Files\camera</Filter>
     </ClInclude>
-    <ClInclude Include="light\PRLightModel.h">
+    <ClInclude Include="include\light\PRLightModel.h">
       <Filter>Header Files\light</Filter>
     </ClInclude>
-    <ClInclude Include="material\PRMaterial.h">
+    <ClInclude Include="include\material\PRMaterial.h">
       <Filter>Header Files\material</Filter>
     </ClInclude>
-    <ClInclude Include="shape\PRBBox.h">
+    <ClInclude Include="include\shape\PRBBox.h">
       <Filter>Header Files\shape</Filter>
     </ClInclude>
-    <ClInclude Include="shape\PRSceneObject.h">
+    <ClInclude Include="include\shape\PRSceneObject.h">
       <Filter>Header Files\shape</Filter>
     </ClInclude>
-    <ClInclude Include="shape\PRShape.h">
+    <ClInclude Include="include\shape\PRShape.h">
       <Filter>Header Files\shape</Filter>
     </ClInclude>
-    <ClInclude Include="shape\PRTriangle.h">
+    <ClInclude Include="include\shape\PRTriangle.h">
       <Filter>Header Files\shape</Filter>
     </ClInclude>
-    <ClInclude Include="shape\PRTriangleMesh.h">
+    <ClInclude Include="include\shape\PRTriangleMesh.h">
       <Filter>Header Files\shape</Filter>
+    </ClInclude>
+    <ClInclude Include="include\pr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\prForward.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\prStd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\display\PRDisplay.h">
+      <Filter>Header Files\display</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="accel\PRBVHTreeNode.cpp">
+    <ClCompile Include="src\accel\PRBVHTreeNode.cpp">
       <Filter>Source Files\accel</Filter>
     </ClCompile>
-    <ClCompile Include="base\PRLine.cpp">
+    <ClCompile Include="src\base\PRLine.cpp">
       <Filter>Source Files\base</Filter>
     </ClCompile>
-    <ClCompile Include="base\PRPixel.cpp">
+    <ClCompile Include="src\base\PRPixel.cpp">
       <Filter>Source Files\base</Filter>
     </ClCompile>
-    <ClCompile Include="base\PRTransform.cpp">
+    <ClCompile Include="src\base\PRTransform.cpp">
       <Filter>Source Files\base</Filter>
     </ClCompile>
-    <ClCompile Include="base\PRVector3.cpp">
+    <ClCompile Include="src\base\PRVector3.cpp">
       <Filter>Source Files\base</Filter>
     </ClCompile>
-    <ClCompile Include="camera\PRCamera.cpp">
+    <ClCompile Include="src\camera\PRCamera.cpp">
       <Filter>Source Files\camera</Filter>
     </ClCompile>
-    <ClCompile Include="camera\PRStereoCameras.cpp">
+    <ClCompile Include="src\camera\PRStereoCameras.cpp">
       <Filter>Source Files\camera</Filter>
     </ClCompile>
-    <ClCompile Include="light\PRLightModel.cpp">
+    <ClCompile Include="src\light\PRLightModel.cpp">
       <Filter>Source Files\light</Filter>
     </ClCompile>
-    <ClCompile Include="shape\PRBBox.cpp">
+    <ClCompile Include="src\shape\PRBBox.cpp">
       <Filter>Source Files\shape</Filter>
     </ClCompile>
-    <ClCompile Include="shape\PRSceneObject.cpp">
+    <ClCompile Include="src\shape\PRSceneObject.cpp">
       <Filter>Source Files\shape</Filter>
     </ClCompile>
-    <ClCompile Include="shape\PRTriangle.cpp">
+    <ClCompile Include="src\shape\PRTriangle.cpp">
       <Filter>Source Files\shape</Filter>
     </ClCompile>
-    <ClCompile Include="shape\PRTriangleMesh.cpp">
+    <ClCompile Include="src\shape\PRTriangleMesh.cpp">
       <Filter>Source Files\shape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\display\PRDisplay.cpp">
+      <Filter>Source Files\display</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
