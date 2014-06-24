@@ -3,8 +3,8 @@ Tao Du
 taodu@stanford.edu
 April 11, 2014
 */
-#include "PRCamera.h"
-#include "prStd.h"
+#include "./PRCamera.h"
+#include "../prStd.h"
 
 PRCamera::PRCamera(const std::string filename)
 {

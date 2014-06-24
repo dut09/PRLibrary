@@ -7,8 +7,8 @@ April 10, 2014
 #ifndef _LIBPR_PRCAMERA_H_
 #define _LIBPR_PRCAMERA_H_
 
-#include "PRMatrix2D.h"
-#include "PRTriangle.h"
+#include "../base/PRMatrix2D.h"
+#include "../shape/PRTriangle.h"
 
 //	this class represents the camera in our project, it includes
 

@@ -4,7 +4,7 @@ taodu@stanford.edu
 May 6, 2014
 */
 
-#include "pr.h"
+#include "../pr.h"
 
 //	default constructor
 //	will init pMin = +Infty

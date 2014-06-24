@@ -12,10 +12,10 @@ May 5, 2014
 #ifndef _LIBPR_PRTRIANGLEMESH_H_
 #define _LIBPR_PRTRIANGLEMESH_H_
 
-#include "prStd.h"
-#include "PRShape.h"
-#include "PRBVHTreeNode.h"
-#include "PRMaterial.h"
+#include "../prStd.h"
+#include "./PRShape.h"
+#include "../accel/PRBVHTreeNode.h"
+#include "../material/PRMaterial.h"
 
 //	face: used in triangle mesh
 struct PRFace;	

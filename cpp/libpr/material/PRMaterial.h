@@ -11,7 +11,7 @@ May 8, 2014
 #ifndef _LIBPR_PRMATERIAL_H_
 #define _LIBPR_PRMATERIAL_H_
 
-#include "PRVector3.h"
+#include "../base/PRVector3.h"
 
 class PRMaterial
 {

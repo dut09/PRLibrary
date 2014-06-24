@@ -12,8 +12,8 @@ May 8, 2014
 #ifndef _LIBPR_PRSCENEOBJECT_H_
 #define _LIBPR_PRSCENEOBJECT_H_
 
-#include "PRShape.h"
-#include "PRMaterial.h"
+#include "./PRShape.h"
+#include "../material/PRMaterial.h"
 
 class PRSceneObject
 {

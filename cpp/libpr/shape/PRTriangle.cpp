@@ -3,8 +3,8 @@ Tao Du
 taodu@stanford.edu
 April 16, 2014
 */
-#include "prStd.h"
-#include "PRTriangle.h"
+#include "../prStd.h"
+#include "../shape/PRTriangle.h"
 
 PRTriangle::PRTriangle()
 {

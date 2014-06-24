@@ -9,8 +9,8 @@ May 5, 2014
 #ifndef _LIBPR_PRBVHTREENODE_H_
 #define _LIBPR_PRBVHTREENODE_H_
 
-#include "prStd.h"
-#include "PRShape.h"
+#include "../prStd.h"
+#include "../shape/PRShape.h"
 
 //	PRBVHTreeNode should implements
 //	the virtual class PRShape

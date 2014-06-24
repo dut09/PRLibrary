@@ -13,25 +13,25 @@ April 8, 2014
 //	include all the header files in libpr
 
 //	basic class: vector, pixel and matrix
-#include "PRVector3.h"
-#include "PRPixel.h"
-#include "PRMatrix2D.h"
+#include "base/PRVector3.h"
+#include "base/PRPixel.h"
+#include "base/PRMatrix2D.h"
 
 //	geometry class in ray tracing
-#include "PRBBox.h"				//	bounding box
-#include "PRTriangleMesh.h"		//	triangle mesh
-#include "PRBVHTreeNode.h"			//	bvh tree: acceleration structure
-#include "PRIntersection.h"		//	intersectio point
-#include "PRLine.h"				//	line: used to represent the ray
-#include "PRShape.h"			//	virtual class, define the interfaces for all the shapes
-#include "PRTriangle.h"			//	triangle
-#include "PRTransform.h"		//	transformation
-#include "PRSceneObject.h"
-#include "PRMaterial.h"
+#include "shape/PRBBox.h"				//	bounding box
+#include "shape/PRTriangleMesh.h"		//	triangle mesh
+#include "accel/PRBVHTreeNode.h"			//	bvh tree: acceleration structure
+#include "base/PRIntersection.h"		//	intersectio point
+#include "base/PRLine.h"				//	line: used to represent the ray
+#include "shape/PRShape.h"			//	virtual class, define the interfaces for all the shapes
+#include "shape/PRTriangle.h"			//	triangle
+#include "base/PRTransform.h"		//	transformation
+#include "shape/PRSceneObject.h"
+#include "material/PRMaterial.h"
 
 //	rasterization class
-#include "PRCamera.h"				//	camera with intrinsic/extrinsic parameters
-#include "PRLightModel.h"			//	light model
-#include "PRStereoCameras.h"		//	stereo camera systems
+#include "camera/PRCamera.h"				//	camera with intrinsic/extrinsic parameters
+#include "light/PRLightModel.h"			//	light model
+#include "camera/PRStereoCameras.h"		//	stereo camera systems
 
 #endif

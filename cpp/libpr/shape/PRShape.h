@@ -23,9 +23,9 @@ May 7, 2014
 //	getIntersectionT
 //		return DBL_MAX if l and the shape do not intersect for any reason
 
-#include "PRIntersection.h"
-#include "PRLine.h"
-#include "PRBBox.h"
+#include "../base/PRIntersection.h"
+#include "../base/PRLine.h"
+#include "../shape/PRBBox.h"
 
 class PRShape
 {

@@ -3,8 +3,8 @@ Tao Du
 taodu@stanford.edu
 April 8, 2014
 */
-#include "prStd.h"
-#include "PRVector3.h"
+#include "../prStd.h"
+#include "../base/PRVector3.h"
 
 PRVector3::PRVector3()
 {

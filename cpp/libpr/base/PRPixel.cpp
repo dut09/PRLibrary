@@ -4,8 +4,8 @@ taodu@stanford.edu
 April 10, 2014
 */
 
-#include "prStd.h"
-#include "PRPixel.h"
+#include "../prStd.h"
+#include "./PRPixel.h"
 
 //	constructor
 PRPixel::PRPixel()

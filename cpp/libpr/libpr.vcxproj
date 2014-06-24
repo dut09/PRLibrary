@@ -74,39 +74,39 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="accel\PRBVHTreeNode.h" />
+    <ClInclude Include="base\PRIntersection.h" />
+    <ClInclude Include="base\PRLine.h" />
+    <ClInclude Include="base\PRMatrix2D.h" />
+    <ClInclude Include="base\PRPixel.h" />
+    <ClInclude Include="base\PRTransform.h" />
+    <ClInclude Include="base\PRVector3.h" />
+    <ClInclude Include="camera\PRCamera.h" />
+    <ClInclude Include="camera\PRStereoCameras.h" />
+    <ClInclude Include="light\PRLightModel.h" />
+    <ClInclude Include="material\PRMaterial.h" />
     <ClInclude Include="pr.h" />
-    <ClInclude Include="PRBBox.h" />
-    <ClInclude Include="PRBVHTreeNode.h" />
-    <ClInclude Include="PRCamera.h" />
     <ClInclude Include="prForward.h" />
-    <ClInclude Include="PRIntersection.h" />
-    <ClInclude Include="PRLightModel.h" />
-    <ClInclude Include="PRLine.h" />
-    <ClInclude Include="PRMaterial.h" />
-    <ClInclude Include="PRMatrix2D.h" />
-    <ClInclude Include="PRPixel.h" />
-    <ClInclude Include="PRSceneObject.h" />
-    <ClInclude Include="PRShape.h" />
     <ClInclude Include="prStd.h" />
-    <ClInclude Include="PRStereoCameras.h" />
-    <ClInclude Include="PRTransform.h" />
-    <ClInclude Include="PRTriangle.h" />
-    <ClInclude Include="PRTriangleMesh.h" />
-    <ClInclude Include="PRVector3.h" />
+    <ClInclude Include="shape\PRBBox.h" />
+    <ClInclude Include="shape\PRSceneObject.h" />
+    <ClInclude Include="shape\PRShape.h" />
+    <ClInclude Include="shape\PRTriangle.h" />
+    <ClInclude Include="shape\PRTriangleMesh.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PRBBox.cpp" />
-    <ClCompile Include="PRBVHTreeNode.cpp" />
-    <ClCompile Include="PRCamera.cpp" />
-    <ClCompile Include="PRLightModel.cpp" />
-    <ClCompile Include="PRLine.cpp" />
-    <ClCompile Include="PRPixel.cpp" />
-    <ClCompile Include="PRSceneObject.cpp" />
-    <ClCompile Include="PRStereoCameras.cpp" />
-    <ClCompile Include="PRTransform.cpp" />
-    <ClCompile Include="PRTriangle.cpp" />
-    <ClCompile Include="PRTriangleMesh.cpp" />
-    <ClCompile Include="PRVector3.cpp" />
+    <ClCompile Include="accel\PRBVHTreeNode.cpp" />
+    <ClCompile Include="base\PRLine.cpp" />
+    <ClCompile Include="base\PRPixel.cpp" />
+    <ClCompile Include="base\PRTransform.cpp" />
+    <ClCompile Include="base\PRVector3.cpp" />
+    <ClCompile Include="camera\PRCamera.cpp" />
+    <ClCompile Include="camera\PRStereoCameras.cpp" />
+    <ClCompile Include="light\PRLightModel.cpp" />
+    <ClCompile Include="shape\PRBBox.cpp" />
+    <ClCompile Include="shape\PRSceneObject.cpp" />
+    <ClCompile Include="shape\PRTriangle.cpp" />
+    <ClCompile Include="shape\PRTriangleMesh.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -12,8 +12,8 @@ May 4, 2014
 #ifndef _LIBPR_PRLIGHTMODEL_H_
 #define _LIBPR_PRLIGHTMODEL_H_
 
-#include "prStd.h"
-#include "PRVector3.h"
+#include "../prStd.h"
+#include "../base/PRVector3.h"
 
 class PRLightModel
 {

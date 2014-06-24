@@ -13,6 +13,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\accel">
+      <UniqueIdentifier>{97118652-4682-49a1-8e84-0e687d8282e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\base">
+      <UniqueIdentifier>{38ccb140-44a2-4dd7-b556-60e0c4bbdea3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\camera">
+      <UniqueIdentifier>{769a168c-4c81-4dd1-9235-b14d4f9daac6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\light">
+      <UniqueIdentifier>{4ba87f22-b4f4-4db2-a481-ef4f8b140790}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\material">
+      <UniqueIdentifier>{23d518c1-e51c-41be-8c5b-efcf604f600a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\shape">
+      <UniqueIdentifier>{38bbfafd-acce-46da-976b-c6e23b265f02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\accel">
+      <UniqueIdentifier>{368ae946-e244-47da-a47d-f4c4930578cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\base">
+      <UniqueIdentifier>{2cd3def4-0818-41f8-9216-c574d3f74fe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\camera">
+      <UniqueIdentifier>{00d57555-94c8-4efe-9447-92411fac21da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\light">
+      <UniqueIdentifier>{db9489b8-7ca9-4789-b7c7-a2252eaeff18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\material">
+      <UniqueIdentifier>{bf8793a0-0774-4159-8178-0cbe17d648b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\shape">
+      <UniqueIdentifier>{19dec4dc-8301-43f1-98d7-22ff9dc0d9b9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -21,97 +57,97 @@
     <ClInclude Include="pr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PRBBox.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRBVHTreeNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRCamera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="prForward.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRIntersection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRLightModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRLine.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRMaterial.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRMatrix2D.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRPixel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRSceneObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PRShape.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="prStd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PRStereoCameras.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="accel\PRBVHTreeNode.h">
+      <Filter>Header Files\accel</Filter>
     </ClInclude>
-    <ClInclude Include="PRTransform.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="base\PRIntersection.h">
+      <Filter>Header Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="PRTriangle.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="base\PRLine.h">
+      <Filter>Header Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="PRTriangleMesh.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="base\PRMatrix2D.h">
+      <Filter>Header Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="PRVector3.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="base\PRPixel.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\PRTransform.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="base\PRVector3.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\PRCamera.h">
+      <Filter>Header Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="camera\PRStereoCameras.h">
+      <Filter>Header Files\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="light\PRLightModel.h">
+      <Filter>Header Files\light</Filter>
+    </ClInclude>
+    <ClInclude Include="material\PRMaterial.h">
+      <Filter>Header Files\material</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\PRBBox.h">
+      <Filter>Header Files\shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\PRSceneObject.h">
+      <Filter>Header Files\shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\PRShape.h">
+      <Filter>Header Files\shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\PRTriangle.h">
+      <Filter>Header Files\shape</Filter>
+    </ClInclude>
+    <ClInclude Include="shape\PRTriangleMesh.h">
+      <Filter>Header Files\shape</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="PRBBox.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="accel\PRBVHTreeNode.cpp">
+      <Filter>Source Files\accel</Filter>
     </ClCompile>
-    <ClCompile Include="PRBVHTreeNode.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="base\PRLine.cpp">
+      <Filter>Source Files\base</Filter>
     </ClCompile>
-    <ClCompile Include="PRCamera.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="base\PRPixel.cpp">
+      <Filter>Source Files\base</Filter>
     </ClCompile>
-    <ClCompile Include="PRLightModel.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="base\PRTransform.cpp">
+      <Filter>Source Files\base</Filter>
     </ClCompile>
-    <ClCompile Include="PRLine.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="base\PRVector3.cpp">
+      <Filter>Source Files\base</Filter>
     </ClCompile>
-    <ClCompile Include="PRPixel.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="camera\PRCamera.cpp">
+      <Filter>Source Files\camera</Filter>
     </ClCompile>
-    <ClCompile Include="PRSceneObject.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="camera\PRStereoCameras.cpp">
+      <Filter>Source Files\camera</Filter>
     </ClCompile>
-    <ClCompile Include="PRStereoCameras.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="light\PRLightModel.cpp">
+      <Filter>Source Files\light</Filter>
     </ClCompile>
-    <ClCompile Include="PRTransform.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="shape\PRBBox.cpp">
+      <Filter>Source Files\shape</Filter>
     </ClCompile>
-    <ClCompile Include="PRTriangle.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="shape\PRSceneObject.cpp">
+      <Filter>Source Files\shape</Filter>
     </ClCompile>
-    <ClCompile Include="PRTriangleMesh.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="shape\PRTriangle.cpp">
+      <Filter>Source Files\shape</Filter>
     </ClCompile>
-    <ClCompile Include="PRVector3.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="shape\PRTriangleMesh.cpp">
+      <Filter>Source Files\shape</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

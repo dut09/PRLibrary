@@ -6,8 +6,8 @@ April 8, 2014
 #ifndef _LIBPR_PRMATRIX2D_H_
 #define _LIBPR_PRMATRIX2D_H_
 
-#include "prStd.h"
-#include "PRPixel.h"
+#include "../prStd.h"
+#include "../base/PRPixel.h"
 
 //	this is a simple 2 dimensional matrix implementation. It supports unsigned char, int, double and PRVector3
 //	and it includes:
