@@ -4,9 +4,9 @@
 int main()
 {
 	//	read camera configuration file
-	PRCamera camera("camera.prc");
+	PRCamera camera("camera/camera.prc");
 	//	read the triangle mesh
-	PRTriangleMesh bunnyMesh("bunny.obj");
+	PRTriangleMesh bunnyMesh("model/bunny.obj");
 	//	transformation
 	PRTransform transform = PRTransform::translate(0, 0, 325) * PRTransform::scale(1.0, -1.0, 1.0);
 	//	material
@@ -41,6 +41,6 @@ int main()
 			}
 		}
 	}
-	image.writeIntoFile("image.prb");
+	image.writeIntoFile("output/image.prb");
 	return 0;
 }
