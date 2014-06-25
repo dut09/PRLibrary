@@ -19,7 +19,7 @@ int main()
 	//	object
 	PRSceneObject bunny(&bunnyMesh, transform, &material);
 	//	light
-	ConstantLight light(PRVector3(15, 0, 0));
+	ConstantLight light(PRVector3(255, 0, 110));
 
 	//	imaging
 	int height = 480;
