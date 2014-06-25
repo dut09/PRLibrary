@@ -17,5 +17,9 @@ There is a sample project in sample/, running this project will generate a rende
 
 ### Acknowledgement: ###
 Thanks to the following code/projects:
+
 Stanford CS 148 sample code provided by Wenlong Lu and Bo Zhu
-pbrt 
+
+pbrt
+
+the Stanford 3D Scanning Repository
