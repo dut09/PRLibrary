@@ -3,6 +3,9 @@ Tao Du
 taodu@stanford.edu
 May 7, 2014
 */
+
+//	this code is mainly from CS 148 sample code
+//	by Wenlong Lu and Bo Zhu
 #include "../../include/accel/PRBVHTreeNode.h"
 
 bool compareX(PRShape* t1, PRShape* t2)

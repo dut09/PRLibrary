@@ -4,6 +4,8 @@ taodu@stanford.edu
 May 6, 2014
 */
 
+//	this code is mainly from the CS 148 sample code
+//	provided by Wenlong Lu and Bo Zhu
 #include "../../include/shape/PRTriangle.h"
 #include "../../include/shape/PRTriangleMesh.h"
 

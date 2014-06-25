@@ -6,6 +6,8 @@ May 5, 2014
 
 //	here we implement PRBVHTree class
 //	including the corresponding PRBVHTreeNode class
+//	this code is mainly from CS 148 sample code
+//	by Wenlong Lu and Bo Zhu
 #ifndef _LIBPR_PRBVHTREENODE_H_
 #define _LIBPR_PRBVHTREENODE_H_
 

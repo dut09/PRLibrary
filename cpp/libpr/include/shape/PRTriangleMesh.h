@@ -5,7 +5,8 @@ May 5, 2014
 */
 
 //	triangle mesh definition
-//	we have to support the following:
+//	this code is mainly from the CS148 sample code
+//	provided by Wenlong Lu and Bo Zhu
 //		read obj files
 //		compute normal for each vertex
 //		triangle intersection

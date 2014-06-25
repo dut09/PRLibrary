@@ -14,3 +14,8 @@ open sample/lib, copy all the *.lib files into your project. In debug mode, add:
 
 ### Sample project: ###
 There is a sample project in sample/, running this project will generate a rendered Stanford Bunny image.
+
+### Acknowledgement: ###
+Thanks to the following code/projects:
+Stanford CS 148 sample code provided by Wenlong Lu and Bo Zhu
+pbrt 
