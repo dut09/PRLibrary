@@ -9,7 +9,7 @@
 %   output:
 %       data
 %   this function has been tested
-function [ data ] = readPRBFile( filename, type )
+function [ data ] = read_prb_file( filename, type )
 fid = fopen(filename, 'rb');
 %   skip the byte code
 fread(fid, 1, 'int8', 'l');

@@ -8,7 +8,7 @@
 %       fileName:
 %       type: 'rgb', 'depth'
 %   this function has been tested
-function [  ] = writePRBFile( data, fileName, type)
+function [  ] = write_prb_file( data, fileName, type)
     data = double(data);
     fid = fopen(fileName, 'wb');
     if strcmp(type, 'rgb')

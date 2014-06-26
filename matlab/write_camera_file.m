@@ -2,7 +2,7 @@
 %   taodu@stanford.edu
 %   June 22, 2014
 
-function [  ] = writeCameraFile( fc, cc, kc, alpha_c, filename)
+function [  ] = write_camera_file( fc, cc, kc, alpha_c, filename)
     %   write left camera
     fid = fopen(filename, 'wb');
     %   compute the height and width
